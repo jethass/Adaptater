@@ -1,4 +1,6 @@
 <?php
+Namespace App;
+
 interface CacheInterface
 {
     public function get($key);
