@@ -1,4 +1,7 @@
 <?php
+require('vendor/autoload.php');
+use App\Hello;
+use App\DoctrineCacheAdapter;
 
 $cache = new \Doctrine\Common\Cache\FilesystemCache(__DIR__ . '/cache');
 
