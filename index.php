@@ -2,11 +2,14 @@
 require('vendor/autoload.php');
 use App\Hello;
 use App\DoctrineCacheAdapter;
+use App\Cache;
 
 $cache = new \Doctrine\Common\Cache\FilesystemCache(__DIR__ . '/cache');
-
-// On "adapte" notre objet
-$adapter = new DoctrineCacheAdapter($cache);
+$CacheAdapter = new DoctrineCacheAdapter($cache);
 
 $hello = new Hello();
-echo $hello->sayHello($adapter);
+//dans le cas normale on passe notre cache qui implemente CacheInterface
+//echo $hello->sayHello($CacheAdapter);
+
+//ici on veut utilser CacheDoctrine a travers ce Adapter qui immplement notre CacheInterface
+echo $hello->sayHello($CacheAdapter);
